@@ -25,7 +25,8 @@ jobs:
         
       # lägg till create csv file (glöm inte pip install)
       # lägg till Create JSON file
-      # Köra ehnetstester      
+      # Köra ehnetstester     
+      #python .\calculateTests.py 
       - name: Copy to dist
         run: |
           mkdir dist
