@@ -1,25 +1,36 @@
-CI/CD
+CI/CD DevOps Project: Customer Contact Data Pipeline
 
-Det finns en sajt som publicerar data (namn) på kunder som skall kontaktas inom kort…
-Det är en webapplikation (HTML+Javascript) som läser data från en fil data.json och det är VI som producerar den filen
-Vi ska produktionssätta denna sajt och bygga en PIPELINE för Data kontroll
+Project Objective
+To build a fully automated CI/CD pipeline for producing and deploying a web application that displays customer contact data.
+Steps Completed
 
+    Web Application Setup:
+    A simple HTML+JavaScript web app was created, which fetches customer data from a data.json file.
 
-UPPGIFTEN
+    Data Transformation:
+        Built csvtojson.py to convert profiles1.csv into a JSON file (data.json).
+        Added validations to ensure the CSV file:
+            Contains 12 columns.
+            Has 900+ rows.
+        Verified that the generated JSON file:
+            Includes the required properties.
+            Contains 900+ rows.
 
-- skapa ett enhetstest som alltid ”funkar”
-- skapa en Githib action PIPELINE
-- den ska köra enhetstest och BRYTA ifall enhetstestet inte går bra (verifiera genom att göra så testet FAILAR)
-- den ska produktionssätta en Githib Pages site så sajten ovan funkar!
+    Unit Testing:
+        Created a suite of unit tests to validate CSV-to-JSON transformation logic.
+        Tests ensure data integrity, correct column mapping, and JSON compliance.
 
-- Skapa en csvtojson.py som gör om profiles1.csv till en JSON fil
-- Skapa tester som
-– verifierar att CSV-filen innehåller 12 kolumner
-– verifierar att CSV-filen innehåller 900+ rader
-– verifierar att JSON-filen innehåller alla properties den ska
-– verifierar att JSON-filen innehåller 900+ rader
-- i min pipeline körs
-- generate.py
-- csvtojson.py
-- testerna
-- deploy index.html + script.js + data.json till Github Pages
+    GitHub Actions CI/CD Pipeline:
+        Configured a pipeline to:
+            Run unit tests and halt on failure.
+            Execute generate.py and csvtojson.py scripts.
+            Deploy index.html, script.js, and data.json to GitHub Pages.
+
+    Testing Pipeline Resilience:
+        Simulated test failures to verify the pipeline aborts on unsuccessful test execution.
+        Ensured the pipeline automatically retries and passes when errors are resolved.
+
+    Deployment:
+        Successfully deployed the web app on GitHub Pages, making the site accessible for displaying customer data dynamically.
+
+This project automated the entire data pipeline for producing customer contact data, from transformation to deployment, ensuring data accuracy and seamless CI/CD functionality. 🚀
